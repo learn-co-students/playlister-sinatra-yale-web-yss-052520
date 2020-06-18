@@ -1,0 +1,31 @@
+<h3> Song's Information </h3>
+
+<label>Name:</label>
+<h4> <%= @song.name %> </h4>
+
+<label>Artist:</label>
+
+<a href="/artists/<%= @song.artist.slug %>">
+    <h4> <%= @song.artist.name %> </h4>
+</a>
+<ul> Genres: 
+<% @song.genres.each do |genre| %>
+    <a href="/genres/<%= genre.slug%>">
+        <li> <%= genre.name %> </li>
+    </a>
+<% end %>
+</ul>
+
+<br>
+
+<form method="get" action="/songs/<%= @song.slug %>/edit">
+    <button type="submit">Edit Song</button>
+</form>
+
+<form method="get" action="/songs">
+    <button type="submit">All Songs</button>
+</form>
+
+<form method="get" action="/artists">
+    <button type="submit">All Artists</button>
+</form>

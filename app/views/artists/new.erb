@@ -1,0 +1,23 @@
+<h4> New Song Form: </h4>
+
+<form action="/artists" method="post">
+
+<label>Name:</label>
+<input type="text" name="artists[name]" placeholder="Write Artist's Name"/>
+
+<select name="artist[artist_id]">
+    <option disabled selected> -- Select An Artist -- </option>
+    <% @artists.each do |artist| %>
+        <option value=<%= artist.id %> > 
+            <%= artist.name %> 
+        </option>
+    <% end %>
+
+</select>
+
+<label>Create An artist:</label>
+<input type="text" name="artist[name]" />
+
+<input type="submit" value="Create A New Artist!">
+
+</form>
