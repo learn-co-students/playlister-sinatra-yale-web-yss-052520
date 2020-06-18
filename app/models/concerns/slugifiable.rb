@@ -7,9 +7,11 @@ module Slugifiable
 	end
 
     module ClassMethods
-	    def deslug(str)
-	    	name = str.split("-").map{|word| word.capitalize}.join(" ")
-	    	name
-	    end
+		def find_by_slug(str)
+			name = str.split("-").map{|word| word.capitalize}.join(" ")
+			# instance = self.find_by(name: name)
+			instance = self.where(["name LIKE ?", name]).first
+			instance 
+		end 
 	end
 end

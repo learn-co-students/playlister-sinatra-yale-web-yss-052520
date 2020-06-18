@@ -1,0 +1,14 @@
+<h3>Song Info:</h3>
+
+<label>Song Title:</label>
+<h5><%= @song.name %></h5>
+
+<label>Song Artist:</label>
+<h5><%= @song.artist.name %></h5>
+
+<label>Song Genres:</label>
+<ul>
+    <% @song.genres.each do |genre| %>
+        <li><%= genre.name %></li>
+    <% end %>
+</ul>

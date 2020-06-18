@@ -7,9 +7,4 @@ class Artist < ActiveRecord::Base
     has_many :songs
     has_many :song_genres, through: :songs  
     has_many :genres, through: :song_genres 
-
-    def self.find_by_slug(str)
-    	name = deslug(str)
-    	Artist.find_by(name: name)
-    end
 end 
