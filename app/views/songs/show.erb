@@ -1,0 +1,16 @@
+<% if @message %>
+  <p><%= @message %></p>
+<% end %>
+
+
+<h1><%=@song.name%></h1>
+
+<h2>Artist:</h2>
+<a href='/artists/<%= @song.artist.slug %>'><p><%= @song.artist.name %></p></a>
+<br/>
+<h2>Genres:</h2>
+<ul>
+<% @song.genres.each do |genre|%>
+    <li> <a href="/genres/<%=genre.slug%>"><%=genre.name%> </a></li>
+<%end%>
+</ul> 
