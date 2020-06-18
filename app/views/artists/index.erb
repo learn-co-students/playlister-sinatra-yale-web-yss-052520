@@ -1,0 +1,16 @@
+<ul> Artists: 
+<% @artists.each do |artist| %>
+    <a href="/artists/<%= artist.slug%>">
+        <li> <%= artist.name %> </li>
+    </a>
+<% end %>
+</ul>
+
+<form method="get" action="/artists/new">
+    <button type="submit">New Artist</button>
+</form>
+
+
+<form method="get" action="/Artists">
+    <button type="submit">All Artists</button>
+</form>

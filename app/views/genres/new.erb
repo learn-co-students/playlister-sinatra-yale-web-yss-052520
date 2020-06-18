@@ -1,0 +1,23 @@
+<h4> New Genre Form: </h4>
+
+<form action="/genres" method="post">
+
+<label>Name:</label>
+<input type="text" name="genre[name]" placeholder="Write genre's Name"/>
+
+<select name="genre[artist_id]">
+    <option disabled selected> -- Select An Artist -- </option>
+    <% @artists.each do |artist| %>
+        <option value=<%= artist.id %> > 
+            <%= artist.name %> 
+        </option>
+    <% end %>
+
+</select>
+
+<label>Create An artist:</label>
+<input type="text" name="artist[name]" />
+
+<input type="submit" value="Create A New genre!">
+
+</form>

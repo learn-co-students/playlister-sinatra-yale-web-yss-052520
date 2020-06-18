@@ -1,0 +1,16 @@
+<ul> Genres: 
+<% @genres.each do |genre| %>
+    <a href="/genres/<%= genre.slug%>">
+        <li> <%= genre.name %> </li>
+    </a>
+<% end %>
+</ul>
+
+<form method="get" action="/genres/new">
+    <button type="submit">New Genre</button>
+</form>
+
+
+<form method="get" action="/Artists">
+    <button type="submit">All Artists</button>
+</form>
