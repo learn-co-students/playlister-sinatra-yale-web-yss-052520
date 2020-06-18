@@ -1,3 +1,17 @@
+require 'pry'
 class GenresController < ApplicationController
-    set :views, set :views, Proc.new { File.join(root, "../views/genres") }
+    set :views, Proc.new { File.join(root, "../views/genres") }
+
+    get '/genres' do
+        @genres = Genre.all
+        erb :index
+    end
+
+    get '/genres/:slug' do 
+        @genre = Genre.find_by_slug(params[:slug])
+        @artists = @genre.artists
+        @songs = @genre.songs
+        erb :show
+    end
+    
 end
