@@ -9,4 +9,10 @@ class Artist < ActiveRecord::Base
     def self.find_by_slug(slug)
         Artist.all.find{ |artist| artist.slug == slug}
     end
+
+    def self.all_names
+        self.all.map do |artist|
+            artist.name
+        end
+    end
 end
