@@ -2,40 +2,41 @@
 
 <form action="/songs" method="post">
 
-	<label>Title:</label>
-	<input id="Name" type="text" name="song[name]" />
+	<label for="Name">Name:</label>
+	<input id="Name" type="text" name="song[name]"/>
 
 	<br/>
 
-	<label> Artist: </label>
-	<% @artists.each do |artist| %>
-	    <br/>
 
-	   <input id="<%= artist.name %>" type= "checkbox" name="song[artist_id]" value="<%= artist.id %>" /> 
-
-	    <%= artist.name %>
-	    <br/>
-	<% end %>
-
-	<label>New Artist: </label>
-	<input id="<%= artist.name %>" type="text" name="artists[name]"/>
-	<br/>
-
-	<br/><br/><br/><br/><br/><br/>
-
-	<label> Genre: </label>
+	<label> Genres: </label>
 	<% @genres.each do |genre| %>
-	    <br/>
+		<br/>
 
-	   <input id="<%= genre.name %>" type= "checkbox" name="genres[]" value="<%= genre.id %>" >
+		<input type= "checkbox" id="<%= genre.name %>" name="genres[id][]" value="<%= genre.id %>" />
+		<%= genre.name %>
 
-	    <%= genre.name %> </input>
-	    <br/>
+		<br/>
 	<% end %>
 
 	<label>New Genre: </label>
 	<input type="text" name="genres[name]"/>
-	<br/>
+
+	<br/><br/><br/><br/><br/><br/>
+
+	<label> Artist: </label>
+	<% @artists.each do |artist| %>
+		<br/>
+
+		<input id="<%= artist.name %>" type= "checkbox" name="song[artist_id]" value="<%= artist.id %>" /> 
+
+		<%= artist.name %>
+		<br/>
+	<% end %>
+
+	<label for="artist_name">New Artist: </label>
+	<input id="Artist Name" type="text" name="artist[name]"/>
+
+
 	
 	<input type="submit" value="Create"/>
 </form>
